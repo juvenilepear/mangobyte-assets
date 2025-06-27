@@ -12,5 +12,12 @@
     "info": "A user profile template with avatar and details.",
     "explanation": "This template shows a user profile layout with avatar, name, and contact information.",
     "location": "src/templates/UserTemplate.jsx"
+  },
+   {
+    "name": "UserTemplate",
+    "type": "template",
+    "info": "A user profile template with avatar and details.",
+    "explanation": "This template shows a user profile layout with avatar, name, and contact information.",
+    "location": "src/templates/UserTemplate.jsx"
   }
 ]

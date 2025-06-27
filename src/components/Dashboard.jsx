@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TemplateList from "./TemplateList";
 import ComponentList from "./ComponentList";
 import "./Dashboard.css";
 
 import ComponentViewer from "./ComponentViewer";
+import { logOut } from "../firebase";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("templates");
@@ -13,9 +14,27 @@ const Dashboard = () => {
     setSelectedItem(item);
   };
 
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      // Optionally, redirect or update UI after logout
+      window.location.reload();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
     <div>
-      <h1>Repository Dashboard</h1>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <h1>Repository Dashboard</h1>
+        <button
+          onClick={handleLogout}
+          className="logout-button"
+        >
+          Logout
+        </button>
+      </div>
       <div className="dashboard-wrapper">
         <div className="dashboard-left">
           <div className="tabs">

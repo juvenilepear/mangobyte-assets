@@ -60,3 +60,20 @@
   font-style: italic;
   font-size: 1.2rem;
 }
+
+.logout-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  box-shadow: var(--button-box-shadow);
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: var(--primary-color-hover);
+}
