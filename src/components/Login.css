@@ -1,0 +1,28 @@
+@import "../styles/variables.css";
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.login-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  box-shadow: var(--button-box-shadow);
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--primary-color-hover);
+}

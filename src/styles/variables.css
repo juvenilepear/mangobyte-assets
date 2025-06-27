@@ -1,0 +1,9 @@
+:root {
+  --primary-color: #4285F4;
+  --primary-color-hover: #357ae8;
+  --text-color: #ffffff;
+  --button-padding: 10px 20px;
+  --button-border-radius: 4px;
+  --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
