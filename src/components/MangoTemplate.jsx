@@ -26,54 +26,58 @@ const MangoTemplate = ({ children }) => {
   const userEmail = auth.currentUser ? auth.currentUser.email : 'Guest';
 
   return (
-    <div className="mango-template">
-      <div className="top-bar">
-        <header className="header">
-          <h1>
-            Mango<br />Template
-          </h1>
-        </header>
-        <nav className="top-nav">
-          <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
-            &#9776;
-          </button>
-          <input type="text" className="search-input" placeholder="Search" />
-          <div className="nav-icons">
-            <button className="icon-button" aria-label="Messages">✉️</button>
-            <button className="icon-button" aria-label="Notifications">🔔</button>
-          </div>
-          <div className="profile-menu">
-            <button className="profile-button" onClick={toggleProfileDropdown}>
-              {userEmail} ▼
-            </button>
-            {profileDropdownVisible && (
-              <div className="profile-dropdown">
-                <a href="#" className="dropdown-item">Profile</a>
-                <button className="dropdown-item" onClick={handleLogout}>Logout</button>
-              </div>
-            )}
-          </div>
-        </nav>
-      </div>
+    <div className={`mango-template ${sidebarVisible ? 'sidebar-visible' : 'sidebar-hidden'}`}>
       <div className="body-container">
-        {sidebarVisible && (
-          <aside className="sidebar">
-            <nav className="menu">
-              <ul>
-                <li className="menu-item active">Dashboard</li>
-                <li className="menu-item">Elements</li>
-                <li className="menu-item">Widgets</li>
-                <li className="menu-item">Forms</li>
-                <li className="menu-item">Tables</li>
-                <li className="menu-item">Charts</li>
-                <li className="menu-item">Pages</li>
-              </ul>
+        <aside className={`sidebar ${sidebarVisible ? 'visible' : 'hidden'}`}>
+          <header className="header">
+            <h1>
+              Mango<br />Template
+            </h1>
+          </header>
+          <nav className="menu">
+            <ul>
+              <li className="menu-item active">Dashboard</li>
+              <li className="menu-item">Elements</li>
+              <li className="menu-item">Widgets</li>
+              <li className="menu-item">Forms</li>
+              <li className="menu-item">Tables</li>
+              <li className="menu-item">Charts</li>
+              <li className="menu-item">Pages</li>
+            </ul>
+          </nav>
+        </aside>
+        <div className="main-container">
+          <div className="top-bar">
+            <nav className="top-nav">
+              <div className="left-controls">
+                <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
+                  &#9776;
+                </button>
+              </div>
+              <div className="right-controls">
+                <input type="text" className="search-input" placeholder="Search" />
+                <div className="nav-icons">
+                  <button className="icon-button" aria-label="Messages">✉️</button>
+                  <button className="icon-button" aria-label="Notifications">🔔</button>
+                </div>
+                <div className="profile-menu">
+                  <button className="profile-button" onClick={toggleProfileDropdown}>
+                    {userEmail} ▼
+                  </button>
+                  {profileDropdownVisible && (
+                    <div className="profile-dropdown">
+                      <a href="#" className="dropdown-item">Profile</a>
+                      <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+                    </div>
+                  )}
+                </div>
+              </div>
             </nav>
-          </aside>
-        )}
-        <main className="content">
-          {children}
-        </main>
+          </div>
+          <main className="content">
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );
