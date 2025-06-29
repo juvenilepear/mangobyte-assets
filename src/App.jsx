@@ -7,7 +7,7 @@ import { auth } from "./firebase";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(undefined);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -16,7 +16,7 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  if (user === null) {
+  if (user === undefined) {
     // While checking auth state, render nothing or a loader
     return null;
   }

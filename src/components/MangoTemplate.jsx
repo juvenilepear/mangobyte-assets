@@ -1,35 +1,21 @@
 import React, { useState } from 'react';
 import './MangoTemplate.css';
 import { auth, logOut } from '../firebase';
-import { 
-  FiMenu, 
-  FiSearch, 
-  FiMessageSquare, 
-  FiBell, 
-  FiUser, 
-  FiLogOut,
-  FiHome,
-  FiGrid,
-  FiLayers,
-  FiEdit,
-  FiDatabase,
-  FiPieChart,
-  FiFile,
-  FiChevronDown
-} from 'react-icons/fi';
+import * as Icons from "../assets/icons";
+import { useNavigate } from "react-router-dom";
 
 const MangoTemplate = ({ 
   children,
   appName = "Mango",
   appShortName = "Template",
   menuItems = [
-    { icon: <FiHome />, label: "Dashboard", path: "/" },
-    { icon: <FiGrid />, label: "Elements", path: "/elements" },
-    { icon: <FiLayers />, label: "Widgets", path: "/widgets" },
-    { icon: <FiEdit />, label: "Forms", path: "/forms" },
-    { icon: <FiDatabase />, label: "Tables", path: "/tables" },
-    { icon: <FiPieChart />, label: "Charts", path: "/charts" },
-    { icon: <FiFile />, label: "Pages", path: "/pages" }
+    { icon: <Icons.FiHome />, label: "Dashboard", path: "/" },
+    { icon: <Icons.FiGrid />, label: "Elements", path: "/elements" },
+    { icon: <Icons.FiLayers />, label: "Widgets", path: "/widgets" },
+    { icon: <Icons.FiEdit />, label: "Forms", path: "/forms" },
+    { icon: <Icons.FiDatabase />, label: "Tables", path: "/tables" },
+    { icon: <Icons.FiPieChart />, label: "Charts", path: "/charts" },
+    { icon: <Icons.FiFile />, label: "Pages", path: "/pages" }
   ],
   activePath = "/",
   onMenuItemClick = (path) => console.log("Navigating to:", path),
@@ -39,6 +25,7 @@ const MangoTemplate = ({
 }) => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [profileDropdownVisible, setProfileDropdownVisible] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -51,7 +38,7 @@ const MangoTemplate = ({
   const handleLogout = async () => {
     try {
       await logOut();
-      window.location.reload();
+      navigate("/", { replace: true });
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -91,25 +78,25 @@ const MangoTemplate = ({
             <nav className="top-nav">
               <div className="left-controls">
                 <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
-                  <FiMenu />
+                  <Icons.FiMenu />
                 </button>
               </div>
               <div className="right-controls">
                 {showSearch && (
                   <div className="search-container">
-                    <FiSearch className="search-icon" />
+                    <Icons.FiSearch className="search-icon" />
                     <input type="text" className="search-input" placeholder="Search..." />
                   </div>
                 )}
                 <div className="nav-icons">
                   {showMessages && (
                     <button className="icon-button" aria-label="Messages">
-                      <FiMessageSquare />
+                      <Icons.FiMessageSquare />
                     </button>
                   )}
                   {showNotifications && (
                     <button className="icon-button" aria-label="Notifications">
-                      <FiBell />
+                      <Icons.FiBell />
                     </button>
                   )}
                 </div>
@@ -119,20 +106,20 @@ const MangoTemplate = ({
                       <img src={userPhoto} alt="Profile" className="profile-photo" />
                     ) : (
                       <div className="profile-photo-placeholder">
-                        <FiUser />
+                        <Icons.FiUser />
                       </div>
                     )}
                     <span className="profile-email">{userEmail}</span>
-                    <FiChevronDown className={`profile-chevron ${profileDropdownVisible ? 'open' : ''}`} />
+                    <Icons.FiChevronDown className={`profile-chevron ${profileDropdownVisible ? 'open' : ''}`} />
                   </button>
                   {profileDropdownVisible && (
                     <div className="profile-dropdown">
                       <a href="#" className="dropdown-item">
-                        <FiUser className="dropdown-icon" />
+                        <Icons.FiUser className="dropdown-icon" />
                         <span>Profile</span>
                       </a>
                       <button className="dropdown-item" onClick={handleLogout}>
-                        <FiLogOut className="dropdown-icon" />
+                        <Icons.FiLogOut className="dropdown-icon" />
                         <span>Logout</span>
                       </button>
                     </div>
@@ -150,4 +137,4 @@ const MangoTemplate = ({
   );
 };
 
-export default MangoTemplate;
+export default MangoTemplate

@@ -5,23 +5,7 @@ import "./Dashboard.css";
 import { logOut } from "../firebase";
 import MangoTemplate from "./MangoTemplate";
 
-import { 
-  FiMenu, 
-  FiSearch, 
-  FiMessageSquare, 
-  FiBell, 
-  FiUser, 
-  FiLogOut,
-  FiHome,
-  FiGrid,
-  FiLayers,
-  FiEdit,
-  FiDatabase,
-  FiPieChart,
-  FiFile,
-  FiChevronDown
-} from 'react-icons/fi';
-
+import * as Icons from "../assets/icons"; 
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,14 +31,15 @@ const Dashboard = () => {
       appName="MiApp"
       appShortName="Mango"
       menuItems={[
-        { icon: <FiHome />, label: "Inicio", path: "/" },
-        { icon: <FiDatabase />, label: "Productos", path: "/products" },
-        { icon: <FiUser />, label: "Usuarios", path: "/users" }
+        { icon: <Icons.FiHome />, label: "Inicio", path: "/" },
+        { icon: <Icons.FiDatabase />, label: "Productos", path: "/products" },
+        { icon: <Icons.FiUser />, label: "Usuarios", path: "/users" }
       ]}
       activePath={location.pathname}
       onMenuItemClick={(path) => navigate(path)}
       showNotifications={false}
     >
+      <h1>Dashboard</h1>
       {/* Contenido de la página */}
     </MangoTemplate>
   );
