@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import { onAuthStateChanged } from "firebase/auth";
@@ -15,9 +16,23 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  if (user === null) {
+    // While checking auth state, render nothing or a loader
+    return null;
+  }
+
   return (
     <div className="App">
-      {user ? <Dashboard /> : <Login />}
+      <Routes>
+        <Route
+          path="/"
+          element={!user ? <Login /> : <Navigate to="/dashboard" replace />}
+        />
+        <Route
+          path="/dashboard"
+          element={user ? <Dashboard /> : <Navigate to="/" replace />}
+        />
+      </Routes>
     </div>
   );
 }

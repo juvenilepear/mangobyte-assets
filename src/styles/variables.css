@@ -1,13 +1,13 @@
 :root {
   --primary-color: #3ca2a2;
-  --primary-color-hover: #215a6d;
+  --primary-color-hover: #2d8b8b;
   --secondary-color: #92c7a3;
-  --text-color: #dfece6;
+  --text-color: #ffffff;
   --button-padding: 10px 20px;
-  --button-border-radius: 4px;
-  --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --button-border-radius: 6px;
+  --button-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --background-color:#2d2d29;
-  --sidebar-color:#2c3e50
-
+  --background-color: #1e1e2d;
+  --sidebar-color: #252538;
+  --sidebar-width: 280px;
 }
