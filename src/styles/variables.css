@@ -1,6 +1,7 @@
 :root {
   --primary-color: #3ca2a2;
   --primary-color-hover: #2d8b8b;
+  --primary-color-active: rgb(24, 100, 100);
   --secondary-color: #92c7a3;
   --text-color: #ffffff;
   --button-padding: 10px 20px;
@@ -10,4 +11,13 @@
   --background-color: #1e1e2d;
   --sidebar-color: #252538;
   --sidebar-width: 280px;
+
+  --color-danger: #c82333;
+  --color-danger-light: #e74c3c;
+  --color-success: #2ecc71;
+  --color-info: #3498db;
+  --color-gray-dark: #333333;
+  --color-gray-medium: #666666;
+  --color-gray-light: #cccccc;
+  --color-light-blue: #f0f7ff;
 }

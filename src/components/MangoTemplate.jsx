@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MangoTemplate.css';
 import { auth, logOut } from '../firebase';
 import * as Icons from "../assets/icons";
@@ -25,7 +25,15 @@ const MangoTemplate = ({
 }) => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [profileDropdownVisible, setProfileDropdownVisible] = useState(false);
+  const [user, setUser] = useState(auth.currentUser);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -44,9 +52,9 @@ const MangoTemplate = ({
     }
   };
 
-  const user = auth.currentUser;
   const userEmail = user ? user.email : 'Guest';
   const userPhoto = user ? user.photoURL : null;
+
 
   return (
     <div className={`mango-template ${sidebarVisible ? 'sidebar-visible' : 'sidebar-hidden'}`}>

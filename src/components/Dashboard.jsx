@@ -6,6 +6,8 @@ import { logOut } from "../firebase";
 import MangoTemplate from "./MangoTemplate";
 
 import * as Icons from "../assets/icons"; 
+import CopyButton from "./componentlist/CopyButton/CopyButton";
+
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -40,6 +42,7 @@ const Dashboard = () => {
       showNotifications={false}
     >
       <h1>Dashboard</h1>
+      <CopyButton textToCopy={"Mango"}/>
       {/* Contenido de la página */}
     </MangoTemplate>
   );
