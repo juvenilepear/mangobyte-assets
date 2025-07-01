@@ -427,7 +427,7 @@ const DocumentList = ({
         className="document-list-listmode" 
         role="listbox" 
         aria-multiselectable="false"
-        style={{ maxHeight: containerHeight, minHeight: containerHeight }}
+        style={{ maxHeight: containerHeight, minHeight: containerHeight, width: '100%' }}
       >
         {documents.map((doc, index) => {
           const file = doc.file;
@@ -471,7 +471,8 @@ const DocumentList = ({
           maxHeight: containerHeight, 
           minHeight: containerHeight, 
           height: containerHeight, 
-          display: 'flex' 
+          display: 'flex',
+          width: '100%'
         }}
       >
         <div 
@@ -532,7 +533,7 @@ const DocumentList = ({
   return (
     <>
       {mode === 'documentos-con-tipos' ? (
-        <div className={`document-list-container ${dragOver ? 'drag-over' : ''}`}>
+      <div className={`document-list-container ${dragOver ? 'drag-over' : ''}`} style={{ width: '100%', display: 'block' }}>
           {renderTabs()}
           <div 
             className="document-list-edit-container"
@@ -587,7 +588,8 @@ const DocumentList = ({
             maxHeight: containerHeight, 
             minHeight: containerHeight, 
             height: containerHeight, 
-            display: 'flex' 
+            display: 'flex',
+            width: '100%'
           }}
         >
           <div
