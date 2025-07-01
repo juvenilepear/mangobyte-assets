@@ -14,6 +14,7 @@ import LoadingSpinner from "./componentlist/LoadingSpinner/LoadingSpinner";
 import FloatingContactButton from "./componentlist/FloatingButton/FloatingContactButton";
 import { FaWhatsapp, FaFacebook, FaInstagram } from 'react-icons/fa';
 import Autocomplete from "./componentlist/AutoComplete/Autocomplete";
+import DocumentList from "./componentlist/DocumentList/DocumentList";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -57,6 +58,50 @@ const Dashboard = () => {
       option.label.toLowerCase().includes(input.toLowerCase())
     );
   };
+
+  const [documents, setDocuments] = useState([
+    {
+      nombre: "Identificación",
+      tipo: 1,
+      archivo: null,
+      url: "",
+      requerido: true,
+    },
+    {
+      nombre: "Comprobante de domicilio",
+      tipo: 2,
+      archivo: null,
+      url: "",
+      requerido: false,
+    },
+  ]);
+
+  const [documentosInmueble, setDocumentosInmueble] = useState([
+    {
+      nombre: "Escritura",
+      tipo: 3,
+      archivo: null,
+      url: "",
+      requerido: true,
+    },
+  ]);
+
+  const [documentosPropietario, setDocumentosPropietario] = useState([
+    {
+      nombre: "INE Propietario",
+      tipo: 1,
+      archivo: null,
+      url: "",
+      requerido: true,
+    },
+  ]);
+
+  const tiposDocumento = [
+    { id: 1, nombre: "Identificación", aplicaInmueble: false, aplicaPropietario: true },
+    { id: 2, nombre: "Comprobante de domicilio", aplicaInmueble: false, aplicaPropietario: true },
+    { id: 3, nombre: "Escritura", aplicaInmueble: true, aplicaPropietario: false },
+    { id: 4, nombre: "Contrato", aplicaInmueble: true, aplicaPropietario: true },
+  ];
 
   useEffect(() => {
     const handleClickToDisable = (e) => {
@@ -183,6 +228,46 @@ const Dashboard = () => {
             height="400px"
             markerColor="var(--primary-color)"
             onChangeCoordinates={(coords) => console.log('Coordenadas seleccionadas:', coords)}
+          />
+        </div>
+
+        <div className="dashboard-grid-break" />
+        <div className="dashboard-grid-item">
+          <h4>DocumentList - Edit</h4>
+          <DocumentList
+            documents={documents}
+            onChange={setDocuments}
+            mode="edit"
+            tiposDocumento={tiposDocumento}
+            toastRef={toastRef}
+          />
+        </div>
+        <div className="dashboard-grid-item">
+          <h4>DocumentList - View</h4>
+          <DocumentList
+            documents={documents}
+            mode="view"
+            tiposDocumento={tiposDocumento}
+          />
+        </div>
+        <div className="dashboard-grid-item">
+          <h4>DocumentList - List</h4>
+          <DocumentList
+            documents={documents}
+            mode="list"
+            tiposDocumento={tiposDocumento}
+          />
+        </div>
+        <div className="dashboard-grid-item">
+          <h4>DocumentList - Documentos con Tipos</h4>
+          <DocumentList
+            mode="documentos-con-tipos"
+            documentosInmueble={documentosInmueble}
+            documentosPropietario={documentosPropietario}
+            onChangeInmueble={setDocumentosInmueble}
+            onChangePropietario={setDocumentosPropietario}
+            tiposDocumento={tiposDocumento}
+            toastRef={toastRef}
           />
         </div>
       </div>
