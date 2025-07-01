@@ -13,6 +13,7 @@ import Map from "./componentlist/Map/Map";
 import LoadingSpinner from "./componentlist/LoadingSpinner/LoadingSpinner";
 import FloatingContactButton from "./componentlist/FloatingButton/FloatingContactButton";
 import { FaWhatsapp, FaFacebook, FaInstagram } from 'react-icons/fa';
+import Autocomplete from "./componentlist/AutoComplete/Autocomplete";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -38,6 +39,24 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const toastRef = useRef(null);
   const [showFloatingContact, setShowFloatingContact] = useState(false);
+
+  // New state for Autocomplete
+  const [autoCompleteValue, setAutoCompleteValue] = useState('');
+  const [autoCompleteSelected, setAutoCompleteSelected] = useState(null);
+
+  // Mock fetchOptions function for Autocomplete
+  const fetchOptions = async (input) => {
+    const allOptions = [
+      { id: 1, label: 'Mango' },
+      { id: 2, label: 'Manzana' },
+      { id: 3, label: 'Durazno' },
+      { id: 4, label: 'Pera' },
+      { id: 5, label: 'Banana' },
+    ];
+    return allOptions.filter(option =>
+      option.label.toLowerCase().includes(input.toLowerCase())
+    );
+  };
 
   useEffect(() => {
     const handleClickToDisable = (e) => {
@@ -73,6 +92,15 @@ const Dashboard = () => {
   const handleTestToast = () => {
     if (toastRef.current) {
       toastRef.current.addToast('Este es un mensaje de prueba de ToastMessage', 'info', 3000);
+    }
+  };
+
+  // Handler for Autocomplete select
+  const handleAutoCompleteSelect = (option) => {
+    setAutoCompleteSelected(option);
+    setAutoCompleteValue(option.label);
+    if (toastRef.current) {
+      toastRef.current.addToast(`Seleccionado: ${option.label}`, 'info', 3000);
     }
   };
 
@@ -123,8 +151,17 @@ const Dashboard = () => {
             />
           )}
         </div>
+        <div className="dashboard-grid-item">
+          <h4>Autocomplete</h4>
+          <Autocomplete
+            value={autoCompleteValue}
+            onChange={setAutoCompleteValue}
+            onSelect={handleAutoCompleteSelect}
+            fetchOptions={fetchOptions}
+            placeholder="Buscar opción..."
+          />
+        </div>
         <div className="dashboard-grid-break" />
-
         <div className="dashboard-grid-item">
           <ImageGallery
             images={images}
