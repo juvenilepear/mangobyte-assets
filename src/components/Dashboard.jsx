@@ -232,7 +232,7 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard-grid-break" />
-        <div style={{ width: '100%' }}>
+        <div className="dashboard-grid-item full-width">
           <h4>DocumentList - Edit</h4>
           <DocumentList
             documents={documents}
@@ -242,7 +242,7 @@ const Dashboard = () => {
             toastRef={toastRef}
           />
         </div>
-        <div style={{ width: '100%' }}>
+        <div className="dashboard-grid-item full-width">
           <h4>DocumentList - View</h4>
           <DocumentList
             documents={documents}
@@ -250,7 +250,7 @@ const Dashboard = () => {
             tiposDocumento={tiposDocumento}
           />
         </div>
-        <div style={{ width: '100%' }}>
+        <div className="dashboard-grid-item full-width">
           <h4>DocumentList - List</h4>
           <DocumentList
             documents={documents}
@@ -258,7 +258,7 @@ const Dashboard = () => {
             tiposDocumento={tiposDocumento}
           />
         </div>
-        <div style={{ width: '100%' }}>
+        <div className="dashboard-grid-item full-width">
           <h4>DocumentList - Documentos con Tipos</h4>
           <DocumentList
             mode="documentos-con-tipos"
