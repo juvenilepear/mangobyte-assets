@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="112.9744mm"
+   height="97.804802mm"
+   viewBox="0 0 112.9744 97.804802"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="mangobyte.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.74709482"
+     inkscape:cx="438.3647"
+     inkscape:cy="366.08472"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="112.9744"
+       height="97.804802"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-56.756742,-41.41719)">
+    <rect
+       style="fill:#008000;stroke-width:0.459543"
+       id="rect6"
+       width="27.946529"
+       height="27.860617"
+       x="141.78462"
+       y="41.417191"
+       ry="0" />
+    <path
+       id="rect8"
+       style="fill:#ff6600;stroke-width:0.236295"
+       d="m 97.316541,63.565629 c 5.290499,3.581186 8.574149,8.621484 8.574149,14.221871 v 14.417208 c 0,10.917552 -12.477907,19.706812 -27.977616,19.706812 -8.467947,0 -16.034171,-2.62351 -21.156332,-6.78409 v 29.17858 c 0,2.72346 2.192526,4.91598 4.915979,4.91598 h 79.697459 c 2.72346,0 4.91598,-2.19252 4.91598,-4.91598 V 68.481608 c 0,-2.723453 -2.19252,-4.915979 -4.91598,-4.915979 z" />
+  </g>
+</svg>
