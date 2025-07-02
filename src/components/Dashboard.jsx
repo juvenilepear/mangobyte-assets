@@ -151,7 +151,7 @@ const Dashboard = () => {
 
   return (
     <MangoTemplate
-      appName={<><span style={{ color: 'orange' }}>Mango</span><span style={{ color: 'green' }}>Byte</span></>}
+      appName={<><span style={{ color: '#ffb300ff' }}>Mango</span><span style={{ color: 'green' }}>Byte</span></>}
       appShortName="Template"
       menuItems={[
         { icon: <Icons.FiHome />, label: "Inicio", path: "/" },
